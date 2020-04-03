@@ -24,7 +24,13 @@ module cy10lp_qsys (
 	avl_imem_debugaccess,
 	bld_id_export,
 	clk_clk,
-	clk_sdram_clk,
+	clk_sdram_in_clk_clk,
+	i2c_0_i2c_serial_sda_in,
+	i2c_0_i2c_serial_scl_in,
+	i2c_0_i2c_serial_sda_oe,
+	i2c_0_i2c_serial_scl_oe,
+	i2c_0_interrupt_sender_irq,
+	pio_0_external_connection_export,
 	pio_hex_1_0_export,
 	pio_hex_3_2_export,
 	pio_hex_5_4_export,
@@ -40,6 +46,11 @@ module cy10lp_qsys (
 	sdram_dqm,
 	sdram_ras_n,
 	sdram_we_n,
+	spi_0_external_MISO,
+	spi_0_external_MOSI,
+	spi_0_external_SCLK,
+	spi_0_external_SS_n,
+	spi_0_irq_irq,
 	uart_waitrequest,
 	uart_readdata,
 	uart_readdatavalid,
@@ -75,14 +86,20 @@ module cy10lp_qsys (
 	input		avl_imem_debugaccess;
 	input	[31:0]	bld_id_export;
 	input		clk_clk;
-	input		clk_sdram_clk;
+	input		clk_sdram_in_clk_clk;
+	input		i2c_0_i2c_serial_sda_in;
+	input		i2c_0_i2c_serial_scl_in;
+	output		i2c_0_i2c_serial_sda_oe;
+	output		i2c_0_i2c_serial_scl_oe;
+	output		i2c_0_interrupt_sender_irq;
+	output	[7:0]	pio_0_external_connection_export;
 	output	[15:0]	pio_hex_1_0_export;
 	output	[15:0]	pio_hex_3_2_export;
 	output	[15:0]	pio_hex_5_4_export;
 	output	[9:0]	pio_led_export;
 	input	[9:0]	pio_sw_export;
 	input		reset_reset_n;
-	output	[12:0]	sdram_addr;
+	output	[11:0]	sdram_addr;
 	output	[1:0]	sdram_ba;
 	output		sdram_cas_n;
 	output		sdram_cke;
@@ -91,6 +108,11 @@ module cy10lp_qsys (
 	output	[1:0]	sdram_dqm;
 	output		sdram_ras_n;
 	output		sdram_we_n;
+	input		spi_0_external_MISO;
+	output		spi_0_external_MOSI;
+	output		spi_0_external_SCLK;
+	output		spi_0_external_SS_n;
+	output		spi_0_irq_irq;
 	input		uart_waitrequest;
 	input	[31:0]	uart_readdata;
 	input		uart_readdatavalid;

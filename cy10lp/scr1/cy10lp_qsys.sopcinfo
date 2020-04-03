@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="cy10lp_qsys" kind="cy10lp_qsys" version="1.0" fabric="QSYS">
  <!-- Format version 19.1 670 (Future versions may contain additional information.) -->
- <!-- 2020.04.03.22:59:17 -->
+ <!-- 2020.04.03.23:25:41 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1585922357</value>
+  <value>1585923941</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -5658,7 +5658,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.INIT_CONTENTS_FILE</name>
-   <value>riscv_main</value>
+   <value>de10lite</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.INIT_MEM_CONTENT</name>
@@ -5722,7 +5722,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.memoryInfo.MEM_INIT_FILENAME</name>
-   <value>riscv_main</value>
+   <value>de10lite</value>
   </assignment>
   <assignment>
    <name>postgeneration.simulation.init_file.param_name</name>
@@ -5798,7 +5798,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="initializationFileName">
    <type>java.lang.String</type>
-   <value>C:/RISCV/Syntacore/scr1-sdk/sw/riscv_test/build.de10lite_scr1/riscv_main.hex</value>
+   <value>C:/RISCV/Syntacore/scr1-sdk/fpga/cy10lp/scr1/ip/de10lite.hex</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -6009,7 +6009,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="derived_init_file_name">
    <type>java.lang.String</type>
-   <value>C:/RISCV/Syntacore/scr1-sdk/sw/riscv_test/build.de10lite_scr1/riscv_main.hex</value>
+   <value>C:/RISCV/Syntacore/scr1-sdk/fpga/cy10lp/scr1/ip/de10lite.hex</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>

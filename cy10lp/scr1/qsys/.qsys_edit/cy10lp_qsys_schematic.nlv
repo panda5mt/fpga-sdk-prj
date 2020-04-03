@@ -1,36 +1,44 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst cy10lp_qsys.avl_dmem -pg 1 -lvl 2 -y 570
-preplace inst cy10lp_qsys.pio_hex_5_4 -pg 1 -lvl 3 -y 570
-preplace inst cy10lp_qsys.onchip_ram -pg 1 -lvl 3 -y 290
-preplace inst cy10lp_qsys.bld_id -pg 1 -lvl 3 -y 30
-preplace inst cy10lp_qsys.clk_sdram -pg 1 -lvl 1 -y 870
-preplace inst cy10lp_qsys.avl_uart -pg 1 -lvl 3 -y 130
+preplace inst cy10lp_qsys.avl_dmem -pg 1 -lvl 2 -y 690
+preplace inst cy10lp_qsys.pio_hex_5_4 -pg 1 -lvl 3 -y 690
+preplace inst cy10lp_qsys.onchip_ram -pg 1 -lvl 3 -y 410
+preplace inst cy10lp_qsys.bld_id -pg 1 -lvl 3 -y 150
+preplace inst cy10lp_qsys.clk_sdram -pg 1 -lvl 1 -y 1090
+preplace inst cy10lp_qsys.avl_uart -pg 1 -lvl 3 -y 250
 preplace inst cy10lp_qsys -pg 1 -lvl 1 -y 40 -regy -20
-preplace inst cy10lp_qsys.sdram -pg 1 -lvl 3 -y 870
-preplace inst cy10lp_qsys.avl_imem -pg 1 -lvl 2 -y 670
-preplace inst cy10lp_qsys.clk -pg 1 -lvl 1 -y 650
-preplace inst cy10lp_qsys.pio_led -pg 1 -lvl 3 -y 670
-preplace inst cy10lp_qsys.pio_sw -pg 1 -lvl 3 -y 770
-preplace inst cy10lp_qsys.default_slave -pg 1 -lvl 3 -y 210
-preplace inst cy10lp_qsys.pio_hex_3_2 -pg 1 -lvl 3 -y 470
-preplace inst cy10lp_qsys.pio_hex_1_0 -pg 1 -lvl 3 -y 370
+preplace inst cy10lp_qsys.sdram -pg 1 -lvl 3 -y 1090
+preplace inst cy10lp_qsys.avl_imem -pg 1 -lvl 2 -y 790
+preplace inst cy10lp_qsys.pio_0 -pg 1 -lvl 3 -y 890
+preplace inst cy10lp_qsys.clk -pg 1 -lvl 1 -y 770
+preplace inst cy10lp_qsys.pio_led -pg 1 -lvl 3 -y 790
+preplace inst cy10lp_qsys.pio_sw -pg 1 -lvl 3 -y 990
+preplace inst cy10lp_qsys.i2c_0 -pg 1 -lvl 3 -y 30
+preplace inst cy10lp_qsys.default_slave -pg 1 -lvl 3 -y 330
+preplace inst cy10lp_qsys.spi_0 -pg 1 -lvl 3 -y 1190
+preplace inst cy10lp_qsys.pio_hex_3_2 -pg 1 -lvl 3 -y 590
+preplace inst cy10lp_qsys.pio_hex_1_0 -pg 1 -lvl 3 -y 490
 preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(MASTER)avl_uart.m0,(MASTER)cy10lp_qsys.uart) 1 3 1 N
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.sdram,(SLAVE)sdram.wire) 1 0 3 NJ 940 NJ 940 NJ
-preplace netloc POINT_TO_POINT<net_container>cy10lp_qsys</net_container>(SLAVE)sdram.clk,(MASTER)clk_sdram.out_clk) 1 1 2 NJ 880 NJ
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.pio_hex_3_2,(SLAVE)pio_hex_3_2.external_connection) 1 0 3 NJ 500 NJ 500 NJ
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)pio_hex_1_0.external_connection,(SLAVE)cy10lp_qsys.pio_hex_1_0) 1 0 3 NJ 400 NJ 400 NJ
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)avl_dmem.s0,(SLAVE)cy10lp_qsys.avl_dmem) 1 0 2 NJ 620 NJ
-preplace netloc FAN_OUT<net_container>cy10lp_qsys</net_container>(SLAVE)avl_uart.reset,(SLAVE)avl_dmem.reset,(SLAVE)onchip_ram.reset1,(SLAVE)pio_sw.reset,(SLAVE)pio_hex_5_4.reset,(SLAVE)pio_led.reset,(MASTER)clk.clk_reset,(SLAVE)pio_hex_3_2.reset,(SLAVE)default_slave.clk_reset,(SLAVE)avl_imem.reset,(SLAVE)bld_id.reset,(SLAVE)pio_hex_1_0.reset,(SLAVE)sdram.reset) 1 1 2 290 760 490
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)pio_sw.external_connection,(SLAVE)cy10lp_qsys.pio_sw) 1 0 3 NJ 800 NJ 800 NJ
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.pio_hex_5_4,(SLAVE)pio_hex_5_4.external_connection) 1 0 3 NJ 560 NJ 560 NJ
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.clk_sdram,(SLAVE)clk_sdram.in_clk) 1 0 1 NJ
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.avl_imem,(SLAVE)avl_imem.s0) 1 0 2 NJ 720 NJ
-preplace netloc INTERCONNECT<net_container>cy10lp_qsys</net_container>(MASTER)avl_imem.m0,(SLAVE)pio_hex_5_4.s1,(SLAVE)sdram.s1,(SLAVE)onchip_ram.s1,(SLAVE)pio_hex_3_2.s1,(MASTER)avl_dmem.m0,(SLAVE)avl_uart.s0,(SLAVE)pio_hex_1_0.s1,(SLAVE)default_slave.axi_error_if,(SLAVE)pio_led.s1,(SLAVE)pio_sw.s1,(SLAVE)bld_id.s1) 1 2 1 430
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.reset,(SLAVE)clk.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.pio_led,(SLAVE)pio_led.external_connection) 1 0 3 NJ 880 NJ 880 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.spi_0_external,(SLAVE)spi_0.external) 1 0 3 NJ 1220 NJ 1220 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.pio_hex_3_2,(SLAVE)pio_hex_3_2.external_connection) 1 0 3 NJ 620 NJ 620 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.pio_0_external_connection,(SLAVE)pio_0.external_connection) 1 0 3 NJ 1140 NJ 1040 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.pio_hex_1_0,(SLAVE)pio_hex_1_0.external_connection) 1 0 3 NJ 520 NJ 520 NJ
+preplace netloc FAN_OUT<net_container>cy10lp_qsys</net_container>(SLAVE)pio_hex_1_0.reset,(SLAVE)avl_imem.reset,(SLAVE)pio_sw.reset,(SLAVE)pio_led.reset,(SLAVE)bld_id.reset,(SLAVE)spi_0.reset,(SLAVE)avl_dmem.reset,(SLAVE)onchip_ram.reset1,(SLAVE)pio_0.reset,(SLAVE)i2c_0.reset_sink,(MASTER)clk.clk_reset,(SLAVE)avl_uart.reset,(SLAVE)pio_hex_5_4.reset,(SLAVE)pio_hex_3_2.reset,(SLAVE)default_slave.clk_reset,(SLAVE)sdram.reset) 1 1 2 380 680 580
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)clk.clk_in_reset,(SLAVE)cy10lp_qsys.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)clk_sdram.in_clk,(SLAVE)cy10lp_qsys.clk_sdram_in_clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.i2c_0_interrupt_sender,(SLAVE)i2c_0.interrupt_sender) 1 0 3 NJ 80 NJ 80 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.spi_0_irq,(SLAVE)spi_0.irq) 1 0 3 NJ 1240 NJ 1240 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)sdram.wire,(SLAVE)cy10lp_qsys.sdram) 1 0 3 NJ 1160 NJ 1160 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)pio_sw.external_connection,(SLAVE)cy10lp_qsys.pio_sw) 1 0 3 NJ 1020 NJ 1020 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.i2c_0_i2c_serial,(SLAVE)i2c_0.i2c_serial) 1 0 3 NJ 100 NJ 100 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.avl_imem,(SLAVE)avl_imem.s0) 1 0 2 NJ 840 NJ
+preplace netloc INTERCONNECT<net_container>cy10lp_qsys</net_container>(SLAVE)pio_0.s1,(SLAVE)bld_id.s1,(SLAVE)pio_hex_1_0.s1,(SLAVE)sdram.s1,(SLAVE)avl_uart.s0,(SLAVE)pio_led.s1,(SLAVE)i2c_0.csr,(SLAVE)onchip_ram.s1,(MASTER)avl_dmem.m0,(SLAVE)default_slave.axi_error_if,(SLAVE)pio_hex_3_2.s1,(SLAVE)pio_hex_5_4.s1,(MASTER)avl_imem.m0,(SLAVE)spi_0.spi_control_port,(SLAVE)pio_sw.s1) 1 2 1 540
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)pio_hex_5_4.external_connection,(SLAVE)cy10lp_qsys.pio_hex_5_4) 1 0 3 NJ 640 NJ 640 NJ
 preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.clk,(SLAVE)clk.clk_in) 1 0 1 NJ
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)pio_led.external_connection,(SLAVE)cy10lp_qsys.pio_led) 1 0 3 NJ 780 NJ 780 NJ
-preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.bld_id,(SLAVE)bld_id.external_connection) 1 0 3 NJ 60 NJ 60 NJ
-preplace netloc FAN_OUT<net_container>cy10lp_qsys</net_container>(SLAVE)bld_id.clk,(MASTER)clk.clk,(SLAVE)avl_dmem.clk,(SLAVE)pio_hex_1_0.clk,(SLAVE)avl_imem.clk,(SLAVE)default_slave.clk,(SLAVE)pio_led.clk,(SLAVE)onchip_ram.clk1,(SLAVE)pio_sw.clk,(SLAVE)pio_hex_5_4.clk,(SLAVE)avl_uart.clk,(SLAVE)pio_hex_3_2.clk) 1 1 2 310 660 470
-levelinfo -pg 1 0 80 730
-levelinfo -hier cy10lp_qsys 90 120 340 520 670
+preplace netloc FAN_OUT<net_container>cy10lp_qsys</net_container>(SLAVE)bld_id.clk,(SLAVE)pio_sw.clk,(SLAVE)pio_hex_5_4.clk,(SLAVE)pio_0.clk,(SLAVE)avl_imem.clk,(SLAVE)spi_0.clk,(SLAVE)i2c_0.clock,(SLAVE)avl_uart.clk,(SLAVE)pio_led.clk,(SLAVE)default_slave.clk,(MASTER)clk.clk,(SLAVE)onchip_ram.clk1,(SLAVE)pio_hex_1_0.clk,(SLAVE)avl_dmem.clk,(SLAVE)pio_hex_3_2.clk) 1 1 2 400 660 520
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.bld_id,(SLAVE)bld_id.external_connection) 1 0 3 NJ 180 NJ 180 NJ
+preplace netloc EXPORT<net_container>cy10lp_qsys</net_container>(SLAVE)cy10lp_qsys.avl_dmem,(SLAVE)avl_dmem.s0) 1 0 2 NJ 740 NJ
+preplace netloc POINT_TO_POINT<net_container>cy10lp_qsys</net_container>(MASTER)clk_sdram.out_clk,(SLAVE)sdram.clk) 1 1 2 N 1100 NJ
+levelinfo -pg 1 0 170 820
+levelinfo -hier cy10lp_qsys 180 210 430 610 760

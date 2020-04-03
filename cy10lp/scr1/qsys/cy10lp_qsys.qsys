@@ -495,7 +495,7 @@
   <parameter name="enPRInitMode" value="false" />
   <parameter name="enableDiffWidth" value="false" />
   <parameter name="initMemContent" value="true" />
-  <parameter name="initializationFileName">C:/RISCV/Syntacore/scr1-sdk/sw/riscv_test/build.de10lite_scr1/riscv_main.hex</parameter>
+  <parameter name="initializationFileName">C:/RISCV/Syntacore/scr1-sdk/fpga/cy10lp/scr1/ip/de10lite.hex</parameter>
   <parameter name="instanceID" value="NONE" />
   <parameter name="memorySize" value="65536" />
   <parameter name="readDuringWriteMode" value="DONT_CARE" />
