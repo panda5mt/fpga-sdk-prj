@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "2";
          type = "int";
       }
    }
@@ -21,7 +21,7 @@
    {
       datum _sortIndex
       {
-         value = "2";
+         value = "1";
          type = "int";
       }
    }
@@ -79,7 +79,7 @@
    {
       datum _sortIndex
       {
-         value = "1";
+         value = "4";
          type = "int";
       }
    }
@@ -87,7 +87,7 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "16";
          type = "int";
       }
    }
@@ -99,11 +99,27 @@
          type = "boolean";
       }
    }
+   element i2c_0
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
+   element i2c_0.csr
+   {
+      datum baseAddress
+      {
+         value = "8519680";
+         type = "String";
+      }
+   }
    element onchip_ram
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "3";
          type = "int";
       }
    }
@@ -117,6 +133,22 @@
       datum baseAddress
       {
          value = "4294901760";
+         type = "String";
+      }
+   }
+   element pio_0
+   {
+      datum _sortIndex
+      {
+         value = "15";
+         type = "int";
+      }
+   }
+   element pio_0.s1
+   {
+      datum baseAddress
+      {
+         value = "8519776";
          type = "String";
       }
    }
@@ -240,10 +272,31 @@
          value = "1";
          type = "boolean";
       }
+      datum baseAddress
+      {
+         value = "0";
+         type = "String";
+      }
+   }
+   element spi_0
+   {
+      datum _sortIndex
+      {
+         value = "14";
+         type = "int";
+      }
+   }
+   element spi_0.spi_control_port
+   {
+      datum baseAddress
+      {
+         value = "8519744";
+         type = "String";
+      }
    }
 }
 ]]></parameter>
- <parameter name="clockCrossingAdapter" value="AUTO" />
+ <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
  <parameter name="device" value="10CL025YU256C8G" />
  <parameter name="deviceFamily" value="Cyclone 10 LP" />
  <parameter name="deviceSpeedGrade" value="8" />
@@ -254,7 +307,7 @@
  <parameter name="hdlLanguage" value="VERILOG" />
  <parameter name="hideFromIPCatalog" value="false" />
  <parameter name="lockedInterfaceDefinition" value="" />
- <parameter name="maxAdditionalLatency" value="0" />
+ <parameter name="maxAdditionalLatency" value="4" />
  <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="0" />
@@ -270,7 +323,26 @@
    type="conduit"
    dir="end" />
  <interface name="clk" internal="clk.clk_in" type="clock" dir="end" />
- <interface name="clk_sdram" internal="clk_sdram.in_clk" type="clock" dir="end" />
+ <interface
+   name="clk_sdram_in_clk"
+   internal="clk_sdram.in_clk"
+   type="clock"
+   dir="end" />
+ <interface
+   name="i2c_0_i2c_serial"
+   internal="i2c_0.i2c_serial"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="i2c_0_interrupt_sender"
+   internal="i2c_0.interrupt_sender"
+   type="interrupt"
+   dir="end" />
+ <interface
+   name="pio_0_external_connection"
+   internal="pio_0.external_connection"
+   type="conduit"
+   dir="end" />
  <interface
    name="pio_hex_1_0"
    internal="pio_hex_1_0.external_connection"
@@ -298,6 +370,12 @@
    dir="end" />
  <interface name="reset" internal="clk.clk_in_reset" type="reset" dir="end" />
  <interface name="sdram" internal="sdram.wire" type="conduit" dir="end" />
+ <interface
+   name="spi_0_external"
+   internal="spi_0.external"
+   type="conduit"
+   dir="end" />
+ <interface name="spi_0_irq" internal="spi_0.irq" type="interrupt" dir="end" />
  <interface name="uart" internal="avl_uart.m0" type="avalon" dir="start" />
  <module
    name="avl_dmem"
@@ -357,7 +435,7 @@
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="20000000" />
+  <parameter name="clockRate" value="48000000" />
   <parameter name="direction" value="Input" />
   <parameter name="edgeType" value="RISING" />
   <parameter name="generateIRQ" value="false" />
@@ -368,7 +446,7 @@
   <parameter name="width" value="32" />
  </module>
  <module name="clk" kind="clock_source" version="19.1" enabled="1">
-  <parameter name="clockFrequency" value="20000000" />
+  <parameter name="clockFrequency" value="48000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
@@ -394,6 +472,11 @@
   <parameter name="REGISTER_AV_INPUTS" value="0" />
   <parameter name="SUPPORT_CSR" value="0" />
  </module>
+ <module name="i2c_0" kind="altera_avalon_i2c" version="19.1" enabled="1">
+  <parameter name="FIFO_DEPTH" value="4" />
+  <parameter name="USE_AV_ST" value="0" />
+  <parameter name="clockRate" value="48000000" />
+ </module>
  <module
    name="onchip_ram"
    kind="altera_avalon_onchip_memory2"
@@ -412,7 +495,7 @@
   <parameter name="enPRInitMode" value="false" />
   <parameter name="enableDiffWidth" value="false" />
   <parameter name="initMemContent" value="true" />
-  <parameter name="initializationFileName" value="de10lite.hex" />
+  <parameter name="initializationFileName">C:/RISCV/Syntacore/scr1-sdk/sw/riscv_test/build.de10lite_scr1/riscv_main.hex</parameter>
   <parameter name="instanceID" value="NONE" />
   <parameter name="memorySize" value="65536" />
   <parameter name="readDuringWriteMode" value="DONT_CARE" />
@@ -426,6 +509,20 @@
   <parameter name="useShallowMemBlocks" value="false" />
   <parameter name="writable" value="true" />
  </module>
+ <module name="pio_0" kind="altera_avalon_pio" version="19.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="48000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="255" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="8" />
+ </module>
  <module
    name="pio_hex_1_0"
    kind="altera_avalon_pio"
@@ -434,7 +531,7 @@
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="20000000" />
+  <parameter name="clockRate" value="48000000" />
   <parameter name="direction" value="Output" />
   <parameter name="edgeType" value="RISING" />
   <parameter name="generateIRQ" value="false" />
@@ -452,7 +549,7 @@
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="20000000" />
+  <parameter name="clockRate" value="48000000" />
   <parameter name="direction" value="Output" />
   <parameter name="edgeType" value="RISING" />
   <parameter name="generateIRQ" value="false" />
@@ -470,7 +567,7 @@
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="20000000" />
+  <parameter name="clockRate" value="48000000" />
   <parameter name="direction" value="Output" />
   <parameter name="edgeType" value="RISING" />
   <parameter name="generateIRQ" value="false" />
@@ -484,7 +581,7 @@
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="20000000" />
+  <parameter name="clockRate" value="48000000" />
   <parameter name="direction" value="Output" />
   <parameter name="edgeType" value="RISING" />
   <parameter name="generateIRQ" value="false" />
@@ -498,7 +595,7 @@
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="20000000" />
+  <parameter name="clockRate" value="48000000" />
   <parameter name="direction" value="Input" />
   <parameter name="edgeType" value="RISING" />
   <parameter name="generateIRQ" value="false" />
@@ -519,9 +616,9 @@
   <parameter name="TRFC" value="70.0" />
   <parameter name="TRP" value="15.0" />
   <parameter name="TWR" value="14.0" />
-  <parameter name="casLatency" value="3" />
+  <parameter name="casLatency" value="2" />
   <parameter name="clockRate" value="100000000" />
-  <parameter name="columnWidth" value="10" />
+  <parameter name="columnWidth" value="8" />
   <parameter name="componentName" value="$${FILENAME}_sdram" />
   <parameter name="dataWidth" value="16" />
   <parameter name="generateSimulationModel" value="false" />
@@ -535,7 +632,23 @@
   <parameter name="powerUpDelay" value="100.0" />
   <parameter name="refreshPeriod" value="7.8125" />
   <parameter name="registerDataIn" value="true" />
-  <parameter name="rowWidth" value="13" />
+  <parameter name="rowWidth" value="12" />
+ </module>
+ <module name="spi_0" kind="altera_avalon_spi" version="19.1" enabled="1">
+  <parameter name="avalonSpec" value="2.0" />
+  <parameter name="clockPhase" value="0" />
+  <parameter name="clockPolarity" value="0" />
+  <parameter name="dataWidth" value="8" />
+  <parameter name="disableAvalonFlowControl" value="false" />
+  <parameter name="inputClockRate" value="48000000" />
+  <parameter name="insertDelayBetweenSlaveSelectAndSClk" value="false" />
+  <parameter name="insertSync" value="false" />
+  <parameter name="lsbOrderedFirst" value="false" />
+  <parameter name="masterSPI" value="true" />
+  <parameter name="numberOfSlaves" value="1" />
+  <parameter name="syncRegDepth" value="2" />
+  <parameter name="targetClockRate" value="800000" />
+  <parameter name="targetSlaveSelectToSClkDelay" value="0.0" />
  </module>
  <connection
    kind="avalon"
@@ -554,6 +667,11 @@
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="true" />
+ </connection>
+ <connection kind="avalon" version="19.1" start="avl_dmem.m0" end="i2c_0.csr">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00820000" />
+  <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="19.1" start="avl_dmem.m0" end="avl_uart.s0">
   <parameter name="arbitrationPriority" value="1" />
@@ -585,16 +703,6 @@
   <parameter name="baseAddress" value="0xff000000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
- <connection kind="avalon" version="19.1" start="avl_imem.m0" end="sdram.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection kind="avalon" version="19.1" start="avl_dmem.m0" end="sdram.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
  <connection kind="avalon" version="19.1" start="avl_dmem.m0" end="pio_hex_1_0.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0xff020000" />
@@ -610,6 +718,30 @@
   <parameter name="baseAddress" value="0xff020010" />
   <parameter name="defaultConnection" value="false" />
  </connection>
+ <connection kind="avalon" version="19.1" start="avl_dmem.m0" end="pio_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00820060" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection kind="avalon" version="19.1" start="avl_imem.m0" end="sdram.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection kind="avalon" version="19.1" start="avl_dmem.m0" end="sdram.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="19.1"
+   start="avl_dmem.m0"
+   end="spi_0.spi_control_port">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00820040" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
  <connection kind="clock" version="19.1" start="clk.clk" end="bld_id.clk" />
  <connection kind="clock" version="19.1" start="clk.clk" end="pio_sw.clk" />
  <connection kind="clock" version="19.1" start="clk.clk" end="pio_led.clk" />
@@ -620,7 +752,10 @@
  <connection kind="clock" version="19.1" start="clk.clk" end="pio_hex_5_4.clk" />
  <connection kind="clock" version="19.1" start="clk.clk" end="pio_hex_3_2.clk" />
  <connection kind="clock" version="19.1" start="clk.clk" end="avl_uart.clk" />
+ <connection kind="clock" version="19.1" start="clk.clk" end="spi_0.clk" />
+ <connection kind="clock" version="19.1" start="clk.clk" end="pio_0.clk" />
  <connection kind="clock" version="19.1" start="clk.clk" end="onchip_ram.clk1" />
+ <connection kind="clock" version="19.1" start="clk.clk" end="i2c_0.clock" />
  <connection kind="clock" version="19.1" start="clk_sdram.out_clk" end="sdram.clk" />
  <connection
    kind="reset"
@@ -661,11 +796,18 @@
    version="19.1"
    start="clk.clk_reset"
    end="avl_uart.reset" />
+ <connection kind="reset" version="19.1" start="clk.clk_reset" end="spi_0.reset" />
+ <connection kind="reset" version="19.1" start="clk.clk_reset" end="pio_0.reset" />
  <connection
    kind="reset"
    version="19.1"
    start="clk.clk_reset"
    end="onchip_ram.reset1" />
- <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="AUTO" />
- <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="0" />
+ <connection
+   kind="reset"
+   version="19.1"
+   start="clk.clk_reset"
+   end="i2c_0.reset_sink" />
+ <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
+ <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="4" />
 </system>

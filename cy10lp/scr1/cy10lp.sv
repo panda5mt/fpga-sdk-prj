@@ -12,9 +12,9 @@ parameter bit [31:0] FPGA_DE10_BUILD_ID = `SCR1_ARCH_BUILD_ID;
 
 module cy10lp (
 
-    input                           MAX10_CLK2_50,
+    input                           CY10_CLK_24M,
 
-    output               [12:0]     DRAM_ADDR,
+    output               [11:0]     DRAM_ADDR,
     output                [1:0]     DRAM_BA,
     output                          DRAM_CAS_N,
     output                          DRAM_CKE,
@@ -45,7 +45,21 @@ module cy10lp (
     output                [7:0]     HEX5,
     input                 [0:0]     KEY,
     output                [9:0]     LEDR,
-    input                 [9:0]     SW
+    input                 [9:0]     SW,
+	 
+	 //I2C
+	 inout	I2C_0_SCL,
+	 inout	I2C_0_SDA,
+	 
+	 //SPI
+	 input	SPI_0_MISO,
+	 output	SPI_0_MOSI,
+	 output	SPI_0_SCLK,
+	 output	SPI_0_SS,
+	 
+	 // PIO_0
+	 
+	 output	[7:0]	pio_0
 );
 
 
@@ -57,6 +71,7 @@ module cy10lp (
 logic                               pll_locked;
 logic                               clk_riscv;
 logic                               clk_sdram;
+logic											clk_qsys;
 logic                               rst_in;
 logic [2:1]                         rst_in_d;
 logic                               rst_n;
@@ -120,10 +135,11 @@ assign rst_in = KEY[0] & pwrup_rst_n;
 
 
 pll i_pll (
-    .inclk0         (MAX10_CLK2_50  ),
+    .inclk0         (CY10_CLK_24M  ),
     .c0             (clk_riscv      ),
     .c1             (clk_sdram      ),
     .c2             (DRAM_CLK       ),
+	 //.c3				  (clk_qsys			),
     .locked         (pll_locked     )
 );
 
@@ -324,9 +340,15 @@ ahb_avalon_bridge i_ahb_dmem (
 
 
 
+// I2C_0  
+logic		i2c0_sda_in;   
+logic		i2c0_scl_in;
+logic		i2c0_sda_oe;
+logic		i2c0_scl_oe;
+
 cy10lp_qsys i_cy10lp_qsys (
-        .clk_clk                    (clk_riscv              ),
-        .clk_sdram_clk              (clk_sdram              ),
+        .clk_clk                    (/*clk_qsys*/clk_riscv	),
+        .clk_sdram_in_clk_clk       (clk_sdram              ),
         .reset_reset_n              (rst_n                  ),
 
 
@@ -352,6 +374,7 @@ cy10lp_qsys i_cy10lp_qsys (
         .sdram_ba                   (DRAM_BA                ),
         .sdram_cas_n                (DRAM_CAS_N             ),
         .sdram_cke                  (DRAM_CKE               ),
+		  
         .sdram_cs_n                 (DRAM_CS_N              ),
         .sdram_dq                   (DRAM_DQ                ),
         .sdram_dqm                  ({DRAM_UDQM,DRAM_LDQM}  ),
@@ -380,15 +403,34 @@ cy10lp_qsys i_cy10lp_qsys (
         .avl_dmem_writedata         (avl_dmem_writedata     ),
         .avl_dmem_readdatavalid     (avl_dmem_readdatavalid ),
         .avl_dmem_readdata          (avl_dmem_readdata      ),
-        .avl_dmem_response          (avl_dmem_response      )
+        .avl_dmem_response          (avl_dmem_response      ),
+		  
+		  .i2c_0_i2c_serial_sda_in    (i2c0_sda_in),    //       i2c_0_i2c_serial.sda_in
+        .i2c_0_i2c_serial_scl_in    (i2c0_scl_in),    //                       .scl_in
+        .i2c_0_i2c_serial_sda_oe    (i2c0_sda_oe),    //                       .sda_oe
+        .i2c_0_i2c_serial_scl_oe    (i2c0_scl_oe),    //                       .scl_oe
+        .i2c_0_interrupt_sender_irq (), //
+		  // .clock_bridge_0_in_clk_clk  (clk_sdram)
+	
+		  .spi_0_external_MISO        (SPI_0_MISO),        //         spi_0_external.MISO
+        .spi_0_external_MOSI        (SPI_0_MOSI),        //                       .MOSI
+        .spi_0_external_SCLK        (SPI_0_SCLK),        //                       .SCLK
+        .spi_0_external_SS_n        (SPI_0_SS),        //                       .SS_n
+        .spi_0_irq_irq              (),               //  
+		
+		  .pio_0_external_connection_export (pio_0[7:0])		
+		  
+		  
 );
 
 
 
 
+assign i2c0_scl_in = I2C_0_SCL;
+assign I2C_0_SCL = i2c0_scl_oe ? 1'b0 : 1'bz;
 
-
-
+assign i2c0_sda_in = I2C_0_SDA;
+assign I2C_0_SDA = i2c0_sda_oe ? 1'b0 : 1'bz;
 
 
 `ifdef SCR1_DBGC_EN

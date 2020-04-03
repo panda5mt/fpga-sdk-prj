@@ -1,25 +1,25 @@
 
 
-create_clock  -name MAX10_CLK2_50       -period 20  [get_ports {MAX10_CLK2_50}]
+create_clock  -name CY10_CLK_24M       -period 20  [get_ports {CY10_CLK_24M}]
 create_clock  -name JTAG_TCK            -period 200 [get_ports {JTAG_TCK}]
 create_clock  -name DRAM_CLK            -period 10
 
 
 
-create_generated_clock  -source MAX10_CLK2_50 \
+create_generated_clock  -source CY10_CLK_24M \
                         -divide_by 5 \
                         -multiply_by 2 \
                         -duty_cycle 50.00 \
                         -name CLK_RISCV \
                         {i_pll|altpll_component|auto_generated|pll1|clk[0]}
 
-create_generated_clock  -source MAX10_CLK2_50 \
+create_generated_clock  -source CY10_CLK_24M \
                         -multiply_by 2 \
                         -duty_cycle 50.00 \
                         -name CLK_SDRAM \
                         {i_pll|altpll_component|auto_generated|pll1|clk[1]}
 
-create_generated_clock  -source MAX10_CLK2_50 \
+create_generated_clock  -source CY10_CLK_24M \
                         -multiply_by 2 \
                         -phase 108.00 \
                         -duty_cycle 50.00 \
@@ -33,7 +33,7 @@ derive_clock_uncertainty
 
 
 
-set_clock_groups -asynchronous -group {MAX10_CLK2_50}
+set_clock_groups -asynchronous -group {CY10_CLK_24M}
 set_clock_groups -asynchronous -group {JTAG_TCK}
 set_clock_groups -asynchronous -group {CLK_RISCV}
 set_clock_groups -asynchronous -group {CLK_SDRAM_EXT  DRAM_CLK}
@@ -74,7 +74,7 @@ set_input_delay -min -clock DRAM_CLK 3.0 [get_ports DRAM_DQ*]
 
 #shift-window
 set_multicycle_path -from [get_clocks {DRAM_CLK}] \
-                    -to   [get_clocks {MAX10_CLK2_50}] \
+                    -to   [get_clocks {CY10_CLK_24M}] \
                     -setup 2
 
 #**************************************************************

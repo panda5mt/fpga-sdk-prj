@@ -1,6 +1,6 @@
 set_global_assignment -name FAMILY "Cyclone 10 LP"
 set_global_assignment -name DEVICE 10CL025YU256C8G
-set_global_assignment -name TOP_LEVEL_ENTITY cy10lp
+set_global_assignment -name TOP_LEVEL_ENTITY "cy10lp"
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.0.0
 set_global_assignment -name LAST_QUARTUS_VERSION "19.1.0 Lite Edition"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:36:13 AUGUST 25,2017"
@@ -19,6 +19,44 @@ set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
 #============================================================
 # SDRAM
 #============================================================
+set_location_assignment PIN_A11 -to DRAM_ADDR[0]
+set_location_assignment PIN_A12 -to DRAM_ADDR[1]
+set_location_assignment PIN_B12 -to DRAM_ADDR[2]
+set_location_assignment PIN_B11 -to DRAM_ADDR[3]
+set_location_assignment PIN_A7 -to DRAM_ADDR[4]
+set_location_assignment PIN_B6 -to DRAM_ADDR[5]
+set_location_assignment PIN_B7 -to DRAM_ADDR[6]
+set_location_assignment PIN_A6 -to DRAM_ADDR[7]
+set_location_assignment PIN_B5 -to DRAM_ADDR[8]
+set_location_assignment PIN_C8 -to DRAM_ADDR[9]
+set_location_assignment PIN_A13 -to DRAM_ADDR[10]
+set_location_assignment PIN_A5 -to DRAM_ADDR[11]
+set_location_assignment PIN_B10 -to DRAM_BA[0]
+set_location_assignment PIN_B13 -to DRAM_BA[1]
+set_location_assignment PIN_A10 -to DRAM_CAS_N
+set_location_assignment PIN_C9 -to DRAM_CKE
+set_location_assignment PIN_B4 -to DRAM_CLK
+set_location_assignment PIN_A14 -to DRAM_CS_N
+set_location_assignment PIN_G16 -to DRAM_DQ[0]
+set_location_assignment PIN_G15 -to DRAM_DQ[1]
+set_location_assignment PIN_F16 -to DRAM_DQ[2]
+set_location_assignment PIN_F15 -to DRAM_DQ[3]
+set_location_assignment PIN_D16 -to DRAM_DQ[4]
+set_location_assignment PIN_D15 -to DRAM_DQ[5]
+set_location_assignment PIN_C16 -to DRAM_DQ[6]
+set_location_assignment PIN_C15 -to DRAM_DQ[7]
+set_location_assignment PIN_B3 -to DRAM_DQ[8]
+set_location_assignment PIN_A3 -to DRAM_DQ[9]
+set_location_assignment PIN_C3 -to DRAM_DQ[10]
+set_location_assignment PIN_A2 -to DRAM_DQ[11]
+set_location_assignment PIN_B1 -to DRAM_DQ[12]
+set_location_assignment PIN_C2 -to DRAM_DQ[13]
+set_location_assignment PIN_D1 -to DRAM_DQ[14]
+set_location_assignment PIN_D3 -to DRAM_DQ[15]
+set_location_assignment PIN_B16 -to DRAM_LDQM
+set_location_assignment PIN_B14 -to DRAM_RAS_N
+set_location_assignment PIN_A4 -to DRAM_UDQM
+set_location_assignment PIN_A15 -to DRAM_WE_N
 
 #============================================================
 # SEG7
@@ -28,11 +66,14 @@ set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
 # KEY
 #============================================================
 #set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to KEY[1]
+set_location_assignment PIN_J16 -to KEY[0]
 #set_location_assignment PIN_A7 -to KEY[1]
 
 #============================================================
 # LED
 #============================================================
+set_location_assignment PIN_L15 -to LEDR[0]
+set_location_assignment PIN_L16 -to LEDR[1]
 
 #============================================================
 # SW
@@ -42,6 +83,8 @@ set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
 # GPIO, GPIO connect to GPIO Default
 #============================================================
 
+set_location_assignment PIN_R7 -to UART_TXD
+set_location_assignment PIN_R6 -to UART_RXD
 
 
 
@@ -134,36 +177,14 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS OFF
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
-
-set_global_assignment -name ENABLE_OCT_DONE OFF
-set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
-set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "PASSIVE SERIAL"
-set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
-set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE COMP IMAGE WITH ERAM"
-set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
-set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
-set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
-set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
-set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
-set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
-set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE SPEED
-set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
-set_global_assignment -name OPTIMIZE_POWER_DURING_SYNTHESIS "NORMAL COMPILATION"
-
-
-
-
-
-
-set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
-set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
-set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
-set_global_assignment -name QSYS_FILE qsys/cy10lp_qsys.qsys
-set_global_assignment -name SDC_FILE cy10lp.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE cy10lp.sv
 set_global_assignment -name VERILOG_FILE ip/pll.v
+set_global_assignment -name SYSTEMVERILOG_FILE cy10lp.sv
+set_global_assignment -name SDC_FILE cy10lp.sdc
 set_global_assignment -name SYSTEMVERILOG_FILE ../../../scr1/src/pipeline/scr1_pipe_ifu.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../../scr1/src/pipeline/scr1_pipe_idu.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../../scr1/src/pipeline/scr1_pipe_exu.sv
@@ -202,8 +223,115 @@ set_global_assignment -name VERILOG_FILE ip/uart/uart_sync_flops.v
 set_global_assignment -name VERILOG_FILE ip/uart/uart_rfifo.v
 set_global_assignment -name VERILOG_FILE ip/uart/uart_regs.v
 set_global_assignment -name VERILOG_FILE ip/uart/uart_receiver.v
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JTAG_TDO
+
+set_global_assignment -name QSYS_FILE qsys/cy10lp_qsys.qsys
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
+set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "PASSIVE SERIAL"
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE COMP IMAGE WITH ERAM"
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
+set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
+set_global_assignment -name OPTIMIZE_POWER_DURING_SYNTHESIS "NORMAL COMPILATION"
+
+
+
+
+
+
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name CDF_FILE output/cy10lp.cdf
+set_instance_assignment -name VIRTUAL_PIN ON -to LEDR[2]
+set_instance_assignment -name VIRTUAL_PIN ON -to LEDR[3]
+set_instance_assignment -name VIRTUAL_PIN ON -to LEDR[4]
+set_instance_assignment -name VIRTUAL_PIN ON -to LEDR[5]
+set_instance_assignment -name VIRTUAL_PIN ON -to LEDR[6]
+set_instance_assignment -name VIRTUAL_PIN ON -to LEDR[7]
+set_instance_assignment -name VIRTUAL_PIN ON -to LEDR[8]
+set_instance_assignment -name VIRTUAL_PIN ON -to LEDR[9]
+set_instance_assignment -name VIRTUAL_PIN ON -to JTAG_TDO
+set_instance_assignment -name VIRTUAL_PIN ON -to JTAG_TRST_N
+set_instance_assignment -name VIRTUAL_PIN ON -to JTAG_TCK
+set_instance_assignment -name VIRTUAL_PIN ON -to JTAG_TMS
+set_instance_assignment -name VIRTUAL_PIN ON -to JTAG_TDI
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX0[0]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX0[1]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX0[2]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX0[3]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX0[4]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX0[5]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX0[6]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX0[7]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX1[0]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX1[1]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX1[2]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX1[3]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX1[4]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX1[5]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX1[6]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX1[7]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX2[0]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX2[1]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX2[2]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX2[3]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX2[4]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX2[5]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX2[6]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX2[7]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX3[0]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX3[1]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX3[2]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX3[3]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX3[4]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX3[5]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX3[6]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX3[7]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX4[0]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX4[1]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX4[2]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX4[3]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX4[4]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX4[5]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX4[6]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX4[7]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX5[0]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX5[1]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX5[2]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX5[3]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX5[4]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX5[5]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX5[6]
+set_instance_assignment -name VIRTUAL_PIN ON -to HEX5[7]
+set_instance_assignment -name VIRTUAL_PIN ON -to SW[0]
+set_instance_assignment -name VIRTUAL_PIN ON -to SW[1]
+set_instance_assignment -name VIRTUAL_PIN ON -to SW[2]
+set_instance_assignment -name VIRTUAL_PIN ON -to SW[3]
+set_instance_assignment -name VIRTUAL_PIN ON -to SW[4]
+set_instance_assignment -name VIRTUAL_PIN ON -to SW[5]
+set_instance_assignment -name VIRTUAL_PIN ON -to SW[6]
+set_instance_assignment -name VIRTUAL_PIN ON -to SW[7]
+set_instance_assignment -name VIRTUAL_PIN ON -to SW[8]
+set_instance_assignment -name VIRTUAL_PIN ON -to SW[9]
+set_global_assignment -name SMART_RECOMPILE ON
+set_location_assignment PIN_T10 -to I2C_0_SCL
+set_location_assignment PIN_R10 -to I2C_0_SDA
+set_location_assignment PIN_P16 -to SPI_0_MISO
+set_location_assignment PIN_R16 -to SPI_0_MOSI
+set_location_assignment PIN_T14 -to SPI_0_SCLK
+set_location_assignment PIN_T15 -to SPI_0_SS
+set_location_assignment PIN_P1 -to pio_0[7]
+set_location_assignment PIN_P2 -to pio_0[6]
+set_location_assignment PIN_T3 -to pio_0[5]
+set_location_assignment PIN_R3 -to pio_0[4]
+set_location_assignment PIN_T5 -to pio_0[3]
+set_location_assignment PIN_R5 -to pio_0[2]
+set_location_assignment PIN_T6 -to pio_0[1]
+set_location_assignment PIN_M16 -to CY10_CLK_24M
+set_global_assignment -name CDF_FILE output/Chain1.cdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
