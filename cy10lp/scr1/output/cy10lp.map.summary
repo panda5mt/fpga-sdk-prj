@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Apr 03 22:31:06 2020
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : cy10lp
+Top-level Entity Name : cy10lp
+Family : Cyclone 10 LP
+Total logic elements : 13,775
+    Total combinational functions : 11,635
+    Dedicated logic registers : 4,757
+Total registers : 4757
+Total pins : 116
+Total virtual pins : 0
+Total memory bits : 524,544
+Embedded Multiplier 9-bit elements : 8
+Total PLLs : 1
