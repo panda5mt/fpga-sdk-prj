@@ -5,7 +5,7 @@ Folder | Description
 ------ | -----------
 a5              | Projects for Intel Arria V GX FPGA Starter Kit
 arty            | Projects for Digilent's Arty board
-cy10lp			| Projects for Intel Cyclone 10LP (10CL025YU256) 
+cy10lp			| Projects for Intel Cyclone10LP (10CL025YU256 etc.) 
 de10lite        | Projects for Terasic's DE10-Lite board
 nexys4ddr       | Projects for Digilent's Nexys4DDR board
 hex             | Common HEX-files
