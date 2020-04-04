@@ -111,7 +111,7 @@
    {
       datum baseAddress
       {
-         value = "8519680";
+         value = "8454144";
          type = "String";
       }
    }
@@ -127,7 +127,7 @@
    {
       datum _lockedAddress
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
       datum baseAddress
@@ -148,7 +148,7 @@
    {
       datum baseAddress
       {
-         value = "8519776";
+         value = "8454240";
          type = "String";
       }
    }
@@ -290,7 +290,7 @@
    {
       datum baseAddress
       {
-         value = "8519744";
+         value = "8454208";
          type = "String";
       }
    }
@@ -495,7 +495,7 @@
   <parameter name="enPRInitMode" value="false" />
   <parameter name="enableDiffWidth" value="false" />
   <parameter name="initMemContent" value="true" />
-  <parameter name="initializationFileName">C:/RISCV/Syntacore/scr1-sdk/fpga/cy10lp/scr1/ip/de10lite.hex</parameter>
+  <parameter name="initializationFileName">C:/RISCV/Syntacore/scr1-sdk/sw/riscv_test/build.de10lite_scr1/riscv_main.hex</parameter>
   <parameter name="instanceID" value="NONE" />
   <parameter name="memorySize" value="65536" />
   <parameter name="readDuringWriteMode" value="DONT_CARE" />
@@ -670,7 +670,7 @@
  </connection>
  <connection kind="avalon" version="19.1" start="avl_dmem.m0" end="i2c_0.csr">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00820000" />
+  <parameter name="baseAddress" value="0x00810000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="19.1" start="avl_dmem.m0" end="avl_uart.s0">
@@ -720,7 +720,7 @@
  </connection>
  <connection kind="avalon" version="19.1" start="avl_dmem.m0" end="pio_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00820060" />
+  <parameter name="baseAddress" value="0x00810060" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="19.1" start="avl_imem.m0" end="sdram.s1">
@@ -739,7 +739,7 @@
    start="avl_dmem.m0"
    end="spi_0.spi_control_port">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00820040" />
+  <parameter name="baseAddress" value="0x00810040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="19.1" start="clk.clk" end="bld_id.clk" />

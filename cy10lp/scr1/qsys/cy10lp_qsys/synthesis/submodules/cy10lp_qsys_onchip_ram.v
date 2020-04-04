@@ -36,7 +36,7 @@ module cy10lp_qsys_onchip_ram (
                               )
 ;
 
-  parameter INIT_FILE = "C:/RISCV/Syntacore/scr1-sdk/fpga/cy10lp/scr1/ip/de10lite.hex";
+  parameter INIT_FILE = "C:/RISCV/Syntacore/scr1-sdk/sw/riscv_test/build.de10lite_scr1/riscv_main.hex";
 
 
   output  [ 63: 0] readdata;

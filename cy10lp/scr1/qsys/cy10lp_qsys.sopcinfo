@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="cy10lp_qsys" kind="cy10lp_qsys" version="1.0" fabric="QSYS">
  <!-- Format version 19.1 670 (Future versions may contain additional information.) -->
- <!-- 2020.04.03.23:21:17 -->
+ <!-- 2020.04.04.02:16:16 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1585923677</value>
+  <value>1585934176</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -1110,7 +1110,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>i2c_0</moduleName>
     <slaveName>csr</slaveName>
     <name>i2c_0.csr</name>
-    <baseAddress>8519680</baseAddress>
+    <baseAddress>8454144</baseAddress>
     <span>64</span>
    </memoryBlock>
    <memoryBlock>
@@ -1182,7 +1182,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>pio_0</moduleName>
     <slaveName>s1</slaveName>
     <name>pio_0.s1</name>
-    <baseAddress>8519776</baseAddress>
+    <baseAddress>8454240</baseAddress>
     <span>16</span>
    </memoryBlock>
    <memoryBlock>
@@ -1198,7 +1198,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>spi_0</moduleName>
     <slaveName>spi_control_port</slaveName>
     <name>spi_0.spi_control_port</name>
-    <baseAddress>8519744</baseAddress>
+    <baseAddress>8454208</baseAddress>
     <span>32</span>
    </memoryBlock>
   </interface>
@@ -5658,7 +5658,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.INIT_CONTENTS_FILE</name>
-   <value>de10lite</value>
+   <value>riscv_main</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.INIT_MEM_CONTENT</name>
@@ -5722,7 +5722,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.memoryInfo.MEM_INIT_FILENAME</name>
-   <value>de10lite</value>
+   <value>riscv_main</value>
   </assignment>
   <assignment>
    <name>postgeneration.simulation.init_file.param_name</name>
@@ -5798,7 +5798,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="initializationFileName">
    <type>java.lang.String</type>
-   <value>C:/RISCV/Syntacore/scr1-sdk/fpga/cy10lp/scr1/ip/de10lite.hex</value>
+   <value>C:/RISCV/Syntacore/scr1-sdk/sw/riscv_test/build.de10lite_scr1/riscv_main.hex</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -6009,7 +6009,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="derived_init_file_name">
    <type>java.lang.String</type>
-   <value>C:/RISCV/Syntacore/scr1-sdk/fpga/cy10lp/scr1/ip/de10lite.hex</value>
+   <value>C:/RISCV/Syntacore/scr1-sdk/sw/riscv_test/build.de10lite_scr1/riscv_main.hex</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -13050,7 +13050,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x00820000</value>
+   <value>0x00810000</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -13560,7 +13560,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x00820060</value>
+   <value>0x00810060</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -13713,7 +13713,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x00820040</value>
+   <value>0x00810040</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>

@@ -135,9 +135,9 @@ module cy10lp_qsys_mm_interconnect_0_router_001
     // during address decoding
     // -------------------------------------------------------
     localparam PAD0 = log2ceil(64'h800000 - 64'h0); 
-    localparam PAD1 = log2ceil(64'h820040 - 64'h820000); 
-    localparam PAD2 = log2ceil(64'h820060 - 64'h820040); 
-    localparam PAD3 = log2ceil(64'h820070 - 64'h820060); 
+    localparam PAD1 = log2ceil(64'h810040 - 64'h810000); 
+    localparam PAD2 = log2ceil(64'h810060 - 64'h810040); 
+    localparam PAD3 = log2ceil(64'h810070 - 64'h810060); 
     localparam PAD4 = log2ceil(64'hff000010 - 64'hff000000); 
     localparam PAD5 = log2ceil(64'hff010020 - 64'hff010000); 
     localparam PAD6 = log2ceil(64'hff020010 - 64'hff020000); 
@@ -220,20 +220,20 @@ module cy10lp_qsys_mm_interconnect_0_router_001
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 11;
     end
 
-    // ( 0x820000 .. 0x820040 )
-    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 32'h820000   ) begin
+    // ( 0x810000 .. 0x810040 )
+    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 32'h810000   ) begin
             src_channel = 14'b00000000010000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
     end
 
-    // ( 0x820040 .. 0x820060 )
-    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 32'h820040   ) begin
+    // ( 0x810040 .. 0x810060 )
+    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 32'h810040   ) begin
             src_channel = 14'b10000000000000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 12;
     end
 
-    // ( 0x820060 .. 0x820070 )
-    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 32'h820060   ) begin
+    // ( 0x810060 .. 0x810070 )
+    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 32'h810060   ) begin
             src_channel = 14'b01000000000000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
     end
