@@ -6,6 +6,8 @@
 /timing/ 
 /testbench/ 
 /*_sim/
+/.qsys_edit/
+/output/
 # project files
 !*.qpf 
 !*.qsf
@@ -21,6 +23,8 @@
 # SOPC builder project source files
 !*.ptf 
 !*.bsf
+*.sopcinfo
+*.swinfo
 # board description
 !**/class.ptf
 # sdc files:
