@@ -7,11 +7,13 @@
 /testbench/ 
 /*_sim/
 /qsys/.qsys_edit/
+/qsys/cy10lp_qsys/
 /output/
 # project files
 !*.qpf 
 !*.qsf
 *.qws
+*.rpt
 # source files
 !*.bdf 
 !*.vhd 
@@ -26,6 +28,7 @@
 !*.bsf
 *.sopcinfo
 *.swinfo
+*.debuginfo
 # board description
 !**/class.ptf
 # sdc files:
