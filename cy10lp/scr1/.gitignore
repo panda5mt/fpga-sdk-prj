@@ -6,7 +6,7 @@
 /timing/ 
 /testbench/ 
 /*_sim/
-/.qsys_edit/
+/qsys/.qsys_edit/
 /output/
 # project files
 !*.qpf 
